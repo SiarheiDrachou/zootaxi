@@ -1,0 +1,3 @@
+User-agent: *
+Sitemap: http://zootaxi.by/sitemap.xml
+Host: zootaxi.by
