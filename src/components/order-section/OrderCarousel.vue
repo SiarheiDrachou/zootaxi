@@ -70,9 +70,6 @@
                     }
                 }, 2000);
             },
-        },
-        mounted() {
-            this.carouselTimer();
         }
     }
 </script>

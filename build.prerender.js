@@ -4,7 +4,7 @@ const PrerenderSPAPlugin = require('prerender-spa-plugin')
 module.exports = (api, options) => {
     let staticDir = path.join(__dirname, options.outputDir);
     let outputDir = path.join(__dirname, 'prerender');
-    let routes = ['/', '/services', '/warranty', '/reviews'];
+    let routes = ['/'];
 
     api.registerCommand('build:prerender', async(args) => {
         api.chainWebpack(config => {

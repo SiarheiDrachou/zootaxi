@@ -1,6 +1,5 @@
 <template>
     <article class="questions">
-        <h1 class="questions__header">{{ textQuestion.anyQuestions }}</h1>
         <p class="questions__text">
             {{ textQuestion.text1 }}
             <br />
@@ -16,7 +15,10 @@
             <br />
             {{ textQuestion.text5 }}
         </p>
+
+        
         <a name="reviews" class="anchor"></a>
+        <h1 class="questions__header">{{ textQuestion.anyQuestions }}</h1>
     </article>
 </template>
 
@@ -62,7 +64,7 @@
         &__header {
             text-align: center;
             color: rgb(157, 10, 15);
-            margin-bottom: 25px;
+            margin-top: 25px;
             font-size: 30px;
 
             @media(max-width: 768px) {

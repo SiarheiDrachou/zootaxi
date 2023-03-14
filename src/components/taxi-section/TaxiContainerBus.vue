@@ -42,7 +42,7 @@
             }
         },
         components: {
-            Cost: () => import(/* webpackChunkName: "Taxi" */ "../Cost/Cost"),
+            Cost: () => import(/* webpackChunkName: "Taxi" */ "../cost/Cost"),
         },
         methods: {
             viewDescrBus() {

@@ -50,7 +50,7 @@
 
 <script>
     export default {
-        props: ['textReview'],
+        props: ['textReview', 'lazyReviews'],
         data() {
             return {
                 idx: 0,
@@ -99,10 +99,14 @@
                 this.caruselHeight = this.getMaxOfArray(max) + 100;
             }
         },
-        mounted() {
-            this.getCaruselHeight();
-            this.carouselTimer();
+        watch: {
+            lazyReviews: function(lazyReviews) {
+                lazyReviews && this.carouselTimer();
 
+                lazyReviews && this.getCaruselHeight();
+            },
+        },
+        mounted() {
             window.onresize = () => {
                 this.getCaruselHeight();
             }

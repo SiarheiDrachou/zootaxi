@@ -1,5 +1,5 @@
 <template>
-    <header class="header" id="header">
+    <header class="header">
         <Logo :textHeader="textHeader" />
 
         <div class="header__text">
@@ -36,7 +36,7 @@
 
     export default {
         components: {
-            Contacts: () => import(/* webpackChunkName: "Contacts" */ "../Contacts/Contacts"),
+            Contacts: () => import(/* webpackChunkName: "Contacts" */ "../contacts/Contacts"),
             Logo: () => import(/* webpackChunkName: "Header" */ "./Logo.vue"),
         },
         computed: {

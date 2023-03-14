@@ -39,7 +39,7 @@
 
     export default {
         components: {
-            Messangers: () => import(/* webpackChunkName: "Messangers" */ "../Messangers/Messangers"),
+            Messangers: () => import(/* webpackChunkName: "Messangers" */ "../messangers/Messangers"),
         },
         computed: {
             ...mapState({

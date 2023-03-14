@@ -5,6 +5,32 @@ import text from '/public/language.json'
 
 Vue.use(Vuex)
 
+const LAZY_COMPONENTS = {
+    lazyPrice: 'lazyPrice',
+    lazyInformation: 'lazyInformation',
+    lazyTaxi: 'lazyTaxi',
+    lazySpecial: 'lazySpecial',
+    lazyPromotion: 'lazyPromotion',
+    lazySatisfied: 'lazySatisfied',
+    lazyQuestions: 'lazyQuestions',
+    lazyReviews: 'lazyReviews',
+    lazyPartners: 'lazyPartners',
+    taxiAnchor: 'taxiAnchor',
+    servicesAnchor: 'servicesAnchor',
+    priceAnchor: 'priceAnchor',
+    header: 'header',
+    informationAnchor: 'informationAnchor',
+    specialAnchor: 'specialAnchor',
+    promotionAnchor: 'promotionAnchor',
+    ownerAnchor: 'ownerAnchor',
+    cityAnchor: 'cityAnchor',
+    alertAnchor: 'alertAnchor',
+    warrantyAnchor: 'warrantyAnchor',
+    reviewsAnchor: 'reviewsAnchor',
+    partnersAnchor: 'partnersAnchor',
+    contactsAnchor: 'contactsAnchor',
+}
+
 export default new Vuex.Store({
     state: {
         defaultLanguage: "ru",
@@ -27,6 +53,16 @@ export default new Vuex.Store({
         typeRequest: '',
         viberLink: '',
         intercity: false,
+        // для подгрузки по скроллу
+        lazyPrice: false,
+        lazyInformation: false,
+        lazyTaxi: false,
+        lazySpecial: false,
+        lazyPromotion: false,
+        lazySatisfied: false,
+        lazyQuestions: false,
+        lazyReviews: false,
+        lazyPartners: false,
     },
     mutations: {
         setText(state, text) {
@@ -36,7 +72,9 @@ export default new Vuex.Store({
             state.typeRequest = type;
         },
         setActiveMenu(state) {
-            state.activeMenu = !state.activeMenu;
+            if(state.windowWidth < 1024) {
+                state.activeMenu = !state.activeMenu;
+            }
         },
         setNotActiveMenu(state) {
             state.activeMenu = false;
@@ -101,6 +139,145 @@ export default new Vuex.Store({
         // замена номера для вайбера
         setViberLink(state, link) {
             state.viberLink = link;
+        },
+
+        // для подгрузки секций по скроллу
+        scrollLazyComponent(state, section) {
+            function scroll(anchorName) {
+                setTimeout(() => {
+                    const city = document.querySelector(`.${anchorName}`);
+        
+                    window.scrollTo({
+                        top: city.getBoundingClientRect().top + pageYOffset,
+                        behavior: "smooth"
+                    });
+                }, 500);
+            }
+
+            switch (section) {
+                case LAZY_COMPONENTS.taxiAnchor:
+                    state.lazyPrice = true;
+                    state.lazyInformation = true;
+                    state.lazyTaxi = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.servicesAnchor:
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.header:
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.warrantyAnchor:
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.contactsAnchor:
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.priceAnchor:
+                    state.lazyPrice = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.ownerAnchor:
+                    state.lazyPrice = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.cityAnchor:
+                    state.lazyPrice = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.alertAnchor:
+                    state.lazyPrice = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.informationAnchor:
+                    state.lazyPrice = true;
+                    state.lazyInformation = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.specialAnchor:
+                    state.lazyPrice = true;
+                    state.lazyInformation = true;
+                    state.lazyTaxi = true;
+                    state.lazySpecial = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.promotionAnchor:
+                    state.lazyPrice = true;
+                    state.lazyInformation = true;
+                    state.lazyTaxi = true;
+                    state.lazySpecial = true;
+                    state.lazyPromotion = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.reviewsAnchor:
+                    state.lazyPrice = true;
+                    state.lazyInformation = true;
+                    state.lazyTaxi = true;
+                    state.lazySpecial = true;
+                    state.lazyPromotion = true;
+                    state.lazySatisfied = true;
+                    state.lazyQuestions = true;
+                    state.lazyReviews = true;
+
+                    scroll(section);
+                    break;
+                case LAZY_COMPONENTS.partnersAnchor:
+                    state.lazyPrice = true;
+                    state.lazyInformation = true;
+                    state.lazyTaxi = true;
+                    state.lazySpecial = true;
+                    state.lazyPromotion = true;
+                    state.lazySatisfied = true;
+                    state.lazyQuestions = true;
+                    state.lazyReviews = true;
+                    state.lazyPartners = true;
+
+                    scroll(section);
+                    break;
+                default:
+                    break;
+            }
+        },
+        setLazyComponent(state, section) {
+            switch (section) {
+                case LAZY_COMPONENTS.lazyPrice:
+                    state.lazyPrice = true;
+                    break;
+                case LAZY_COMPONENTS.lazyInformation:
+                    state.lazyInformation = true;
+                    break;
+                case LAZY_COMPONENTS.lazyTaxi:
+                    state.lazyTaxi = true;
+                    break;
+                case LAZY_COMPONENTS.lazySpecial:
+                    state.lazySpecial = true;
+                    break;
+                case LAZY_COMPONENTS.lazyPromotion:
+                    state.lazyPromotion = true;
+                    break;
+                case LAZY_COMPONENTS.lazySatisfied:
+                    state.lazySatisfied = true;
+                    break;
+                case LAZY_COMPONENTS.lazyQuestions:
+                    state.lazyQuestions = true;
+                    break;
+                case LAZY_COMPONENTS.lazyReviews:
+                    state.lazyReviews = true;
+                    break;
+                case LAZY_COMPONENTS.lazyPartners:
+                    state.lazyPartners = true;
+                    break;
+                default:
+                    break;
+            }
         },
 
         // получение переходов на партнеров для построение графика
@@ -225,6 +402,15 @@ export default new Vuex.Store({
             }
 
             commit('setViberLink', 'viber://chat?number=%2B375447144111');
+        },
+
+        // для отображения секций по скроллу
+        scrollLink({commit}, name) {
+            commit('setNotActiveMenu');
+            commit('scrollLazyComponent', name);
+        },
+        getLazyComponent({commit}, section) {
+            commit('setLazyComponent', section);
         },
 
         // сбор статистики по партнерам в базу

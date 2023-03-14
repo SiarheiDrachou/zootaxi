@@ -121,4 +121,14 @@
             }
         }
     }
+
+    .services:after {
+        content: ' ';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background-image: url('https://zootaxi.by/images/spear.png');
+    }
 </style>

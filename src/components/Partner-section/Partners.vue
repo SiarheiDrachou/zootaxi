@@ -193,6 +193,7 @@
                 max-width: 120px;
                 margin: 0 auto;
                 display: block;
+                display: none;
 
                 @media(max-width: 500px) {
                     min-width: 250px;

@@ -9,22 +9,22 @@
                 <Social class="none" />
 
                 <div class="advantages-information-1-container">
-                    <router-link :to="'/services/'" class="advantages-information-1-container__link">{{ textAdvantages.services }}</router-link>
+                    <a class="advantages-information-1-container__link" @click="scrollLink('servicesAnchor')">{{ textAdvantages.services }}</a>
 
-                    <router-link :to="'/services/'" class="advantages-information-1-container__link">{{ textAdvantages.prices }}</router-link>
+                    <a class="advantages-information-1-container__link" @click="scrollLink('priceAnchor')">{{ textAdvantages.prices }}</a>
 
-                    <a class="advantages-information-1-container__link" href="#header">{{ textAdvantages.contacts }}</a>
+                    <a class="advantages-information-1-container__link" @click="scrollLink('header')">{{ textAdvantages.contacts }}</a>
                 </div>
             </div>
 
             <div class="advantages-information-2">
                 <h3 class="advantages-information-2__header">{{ textAdvantages.popularTransportation }}</h3>
 
-                <router-link :to="'/services/'" class="advantages-information-2__link" >{{ textAdvantages.transportationInBelarus }}</router-link>
+                <a class="advantages-information-2__link" @click="scrollLink('taxiAnchor')">{{ textAdvantages.transportationInBelarus }}</a>
                 
-                <router-link :to="'/services/'" class="advantages-information-2__link" >{{ textAdvantages.whithPerson }}</router-link>
+                <a class="advantages-information-2__link" @click="scrollLink('ownerAnchor')">{{ textAdvantages.whithPerson }}</a>
                 
-                <router-link :to="'/services/'" class="advantages-information-2__link" >{{ textAdvantages.outCity }}</router-link>
+                <a class="advantages-information-2__link" @click="scrollLink('cityAnchor')">{{ textAdvantages.outCity }}</a>
             </div>
 
             <div class="advantages-information-3">
@@ -54,16 +54,17 @@
         </div>
         
         <div class="advantages-social">
-            <router-link :to="'/services/'" class="advantages-social__link advantages-social__link-condition" >{{ textAdvantages.conditionsAndCosts }}</router-link> 
+            <a class="advantages-social__link advantages-social__link-condition" @click="scrollLink('priceAnchor')">{{ textAdvantages.conditionsAndCosts }}</a> 
 
             <Social />
             
-            <router-link :to="'/'" class="advantages-social__link advantages-social__link-inform">{{ textAdvantages.information }}</router-link>
+            <a class="advantages-social__link advantages-social__link-inform" @click="scrollLink('informationAnchor')">{{ textAdvantages.information }}</a>
         </div>
     </section>
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
     import { mapState } from 'vuex'
 
     export default {
@@ -85,6 +86,19 @@
                 return {}
             }
         },
+        methods: {
+            ...mapActions({
+                scrollLink: 'scrollLink'
+            }),
+            scroll(name) {
+                const city = document.querySelector(`.${name}`);
+                
+                window.scrollTo({
+                    top: city.getBoundingClientRect().top + pageYOffset - 400,
+                    behavior: "smooth"
+                });
+            }
+        }
     }
 </script>
 

@@ -9,24 +9,6 @@ const routes = [
       component:  () => import(/* webpackChunkName: "Home" */ "../views/Home.vue"),
       props: true
     },
-    {
-      path: '/services',
-      name: 'Services',
-      component:  () => import(/* webpackChunkName: "Services" */ "../views/Services.vue"),
-      props: true
-    },
-    {
-      path: '/warranty',
-      name: 'Warranty',
-      component:  () => import(/* webpackChunkName: "Warranty" */ "../views/Warranty.vue"),
-      props: true
-    },
-    {
-      path: '/reviews',
-      name: 'Reviews',
-      component:  () => import(/* webpackChunkName: "Reviews" */ "../views/Reviews.vue"),
-      props: true
-    },
 ]
 
 const router = new VueRouter({

@@ -12,9 +12,9 @@
             <OrderCarousel :textOrder="textOrder" />
 
             <div class="order-container-tags">
-                <router-link :to="'/services/'" class="order-container-tags__link alert" >{{ textOrder.request }}</router-link>
-                <router-link :to="'/services/'" class="order-container-tags__link homes" >{{ textOrder.newHome }}</router-link>
-                <router-link :to="'/services/'" class="order-container-tags__link specials" >{{ textOrder.outCar }}</router-link>
+                <a class="order-container-tags__link alert" @click="scrollLink('alertAnchor')">{{ textOrder.request }}</a>
+                <a class="order-container-tags__link homes" @click="scrollLink('promotionAnchor')">{{ textOrder.newHome }}</a>
+                <a class="order-container-tags__link specials" @click="scrollLink('specialAnchor')">{{ textOrder.outCar }}</a>
             </div>
 
             <OrderForm :textOrder="textOrder" />
@@ -25,12 +25,18 @@
 </template>
 
 <script>
+    import { mapActions } from 'vuex'
     import { mapState } from 'vuex'
 
     export default {
         components: {
             OrderForm: () => import(/* webpackChunkName: "Order" */ "./OrderForm.vue"),
             OrderCarousel: () => import(/* webpackChunkName: "Order" */ "./OrderCarousel.vue"),
+        },
+        methods: {
+            ...mapActions({
+                scrollLink: 'scrollLink',
+            }),
         },
         computed: {
             ...mapState({
@@ -168,6 +174,10 @@
                     top: 10px;
                     z-index: 2;
                     filter: invert(100%);
+
+                    @media(max-width: 400px) {
+                        display: none;
+                    }
                 }
 
                 .bi-arrow-right-circle {
@@ -176,6 +186,10 @@
                     top: 10px;
                     z-index: 2;
                     filter: invert(100%);
+
+                    @media(max-width: 400px) {
+                        display: none;
+                    }
                 }
             }
 

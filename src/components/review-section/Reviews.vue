@@ -3,7 +3,7 @@
         <a class="reviewsAnchor anchor"></a>
         <h2 class="reviews__header">{{ textReview.reviewsClients }}</h2>
 
-        <ReviewsCarousel :textReview="textReview" />
+        <ReviewsCarousel :textReview="textReview" :lazyReviews="lazyReviews" />
     </section>
 </template>
 
@@ -11,6 +11,7 @@
     import { mapState } from 'vuex'
 
     export default {
+        props: ['lazyReviews'],
         components: {
             ReviewsCarousel: () => import(/* webpackChunkName: "Reviews" */ "./ReviewsCarousel"),
         },

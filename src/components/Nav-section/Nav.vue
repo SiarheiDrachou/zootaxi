@@ -7,25 +7,34 @@
         <nav class="navigation__nav">
             <ul class="navigation__nav__list">
                 <li class="navigation__nav__list__item">
-                    <router-link :to="'/'" class="navigation__nav__list__item__link">{{ textNav.home }}</router-link>
+                    <a class="navigation__nav__list__item__link" @click="scrollLink('header')">{{ textNav.home }}</a>
                 </li>
                 <li class="navigation__nav__list__item">
-                    <router-link :to="'/services/'" class="navigation__nav__list__item__link">{{ textNav.services }}</router-link>
+                    <a class="navigation__nav__list__item__link" @click="scrollLink('servicesAnchor')">{{ textNav.services }}</a>
                 </li>
                 <li class="navigation__nav__list__item">
-                    <router-link :to="'/warranty/'" class="navigation__nav__list__item__link">{{ textNav.warranty }}</router-link>
+                    <a class="navigation__nav__list__item__link" @click="scrollLink('warrantyAnchor')">{{ textNav.warranty }}</a>
                 </li>
                 <li class="navigation__nav__list__item">
-                    <router-link :to="'/reviews/'" class="navigation__nav__list__item__link">{{ textNav.review }}</router-link>
+                    <a class="navigation__nav__list__item__link" @click="scrollLink('priceAnchor')">{{ textNav.price }}</a>
+                </li>
+                <li class="navigation__nav__list__item">
+                    <a class="navigation__nav__list__item__link" @click="scrollLink('specialAnchor')">{{ textNav.special }}</a>
+                </li>
+                <li class="navigation__nav__list__item">
+                    <a class="navigation__nav__list__item__link" @click="scrollLink('reviewsAnchor')">{{ textNav.review }}</a>
+                </li>
+                <li class="navigation__nav__list__item">
+                    <a class="navigation__nav__list__item__link" @click="scrollLink('partnersAnchor')">{{ textNav.partner }}</a>
+                </li>
+                <li class="navigation__nav__list__item">
+                    <a class="navigation__nav__list__item__link" @click="scrollLink('header')">{{ textNav.contact }}</a>
                 </li>
             </ul>
 
             <div class="mt">
                 <Messangers :type="'Nav'"/>
             </div>
-            <p class="footer-pay__text-copyright">
-                © 2019 - {{currentYear}}
-            </p>
         </nav>
     </section>
 </template>
@@ -36,7 +45,7 @@
 
     export default {
         components: {
-            Messangers: () => import(/* webpackChunkName: "Messangers" */ "../Messangers/Messangers.vue"),
+            Messangers: () => import(/* webpackChunkName: "Messangers" */ "../messangers/Messangers.vue"),
         },
         computed: {
             ...mapState({
@@ -51,23 +60,18 @@
                 }
 
                 return {}
-            },
-            currentYear() {
-                let year = new Date();
-                
-                return year.getFullYear();
-            },
+            }
         },
         methods: {
             ...mapActions({
                 getNotActiveMenu: 'getNotActiveMenu',
+                scrollLink: 'scrollLink'
             })
         },
         mounted() {
-            let ths = this;
             window.onresize = () => {
-                if(window.innerWidth >= 1024) {
-                    ths.getNotActiveMenu();
+                if(window.clientWidth >= 1024) {
+                    this.getNotActiveMenu();
                 } 
             }
         },
@@ -82,23 +86,12 @@
         top: 0;
         background-color: rgba(255, 255, 255, 0.5);
         z-index: 2;
-        grid-area: navigation;
 
         @media(max-width: 1024px) {
             display: none;
             position: relative;
             top: -100%;
-            padding: 0;
         }
-
-
-        p {
-                margin-bottom: 70px;
-                display: none;
-                @media(max-width: 1024px) {
-                    display: block;
-                }
-            }
 
         &__img {
             display: block;
@@ -117,12 +110,6 @@
 
             @media(max-width: 1280px) {
                 justify-content: space-between;
-            }
-
-            @media(max-width: 1024px) {
-                max-width: 320px;
-                margin-left: auto;
-                background-color: #272d40;
             }
             
             &__list {
@@ -184,6 +171,7 @@
 
         &--mobile {
             display: none;
+            transition-duration: 3s;
             position: relative;
             top: -100%;
 
@@ -192,10 +180,10 @@
                 position: fixed;
                 top: 0;
                 left: 0;
-                bottom: 0;
-                background-color: rgba(255, 255, 255, 0.5);
+                background-color: #fff;
                 width: 100%;
-                height: calc(100% + 60px);
+                height: 100%;
+                transition-duration: 3s;
             }
 
             .navigation__nav {
@@ -206,12 +194,12 @@
 
                 @media(max-width: 1024px) {
                     flex-direction: column;
-                    height: 100%;
-                    margin-top: 0;
+                    height: 90%;
                 }
 
                 @media(max-width: 400px) {
                     flex-direction: column;
+                    height: 90%;
                 }
                 
                 &__list {
@@ -223,9 +211,8 @@
 
                     @media(max-width: 1024px) {
                         flex-direction: column;
-                        justify-content: start;
-                        padding-top: 100px;
-                        height: 100%;
+                        justify-content: space-around;
+                        height: 90%;
                     }
 
                     &__item {
@@ -240,8 +227,7 @@
                         @media(max-width: 1024px) {
                             background-color: transparent;
                             text-align: center;
-                            margin: 20px 0;
-                            border: 1px solid #ffffff;
+                            margin: 0;
                         }
 
                         @media(max-width: 400px) {
@@ -254,6 +240,7 @@
 
                             @media(max-width: 1024px) {
                                 font-size: 20px;
+                                color: black;
                             }
                         }
                     }

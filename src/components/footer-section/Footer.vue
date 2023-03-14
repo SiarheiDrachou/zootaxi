@@ -1,7 +1,7 @@
 <template>
     <footer class="footer">
         <a class="contactsAnchor anchor"></a>
-        <div v-if="isSvg" class="footer__svg-top"></div>
+        <div class="footer__svg-top"></div>
         
         <FooterContact :scroll="scroll" :textFooter="textFooter" />
 
@@ -26,11 +26,6 @@
                 scroll: false
             }
         },
-        props: {
-            isSvg: {
-                default: true,
-            },
-        },
         components: {
             FooterPay: () => import(/* webpackChunkName: "Footer" */ "./FooterPay.vue"),
             FooterContact: () => import(/* webpackChunkName: "Footer" */ "./FooterContact.vue"),
@@ -51,7 +46,7 @@
         },
         mounted() {
             window.onscroll = () => {
-                if(pageYOffset > document.querySelector('.footer-contact').getBoundingClientRect().top) {
+                if(pageYOffset > 7500) {
                     this.scroll = true;
                 }
             }

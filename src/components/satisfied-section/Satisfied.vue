@@ -133,4 +133,14 @@
             }
         }
     }
+
+    .satisfied:after {
+        content: ' ';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, white 100%);
+    }
 </style>
