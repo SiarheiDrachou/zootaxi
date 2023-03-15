@@ -65,11 +65,13 @@
 
 <script>
     import { mapState } from 'vuex'
+    import Social from '../Social-networks/Social.vue'
+    import AdvantagesInformationList from './AdvantagesInformationList.vue'
 
     export default {
         components: {
-            Social: () => import(/* webpackChunkName: "SocialNetworks" */ "../Social-networks/Social"),
-            AdvantagesInformationList: () => import(/* webpackChunkName: "Advantages" */ "./AdvantagesInformationList.vue"),
+            Social,
+            AdvantagesInformationList,
         },
         computed: {
             ...mapState({

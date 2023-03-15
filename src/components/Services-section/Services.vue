@@ -13,10 +13,11 @@
 
 <script>
     import { mapState } from 'vuex'
+    import ServicesCarousel from './ServicesCarousel.vue'
 
     export default {
         components: {
-            ServicesCarousel: () => import(/* webpackChunkName: "Services" */ "./ServicesCarousel"),
+            ServicesCarousel,
         },
         computed: {
             ...mapState({

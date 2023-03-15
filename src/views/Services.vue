@@ -12,10 +12,10 @@
 
         <main class="main">
             <Nav />
-            
-            <Services />
 
             <Price />
+            
+            <Services />
 
             <Taxi />
 
@@ -31,24 +31,33 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
-    import { mapActions } from 'vuex'
+    import { mapState, mapActions } from 'vuex'
+    import Header from "../components/Header-section/Header.vue"
+    import Services from "../components/Services-section/Services.vue"
+    import Nav from "../components/Nav-section/Nav.vue"
+    import Price from "../components/Price-section/Price.vue"
+    import Taxi from "../components/Taxi-section/Taxi.vue"
+    import Special from "../components/Special-section/Special.vue"
+    import Promotion from "../components/Promotion-section/Promotion.vue"
+    import Footer from "../components/Footer-section/Footer.vue"
+    import OrderModal from "../components/Order-modal/OrderModal.vue"
+    import Attention from "../components/Attention-modal/Attention.vue"
 
     export default {
         components: {
-            Header: () => import(/* webpackChunkName: "Services" */ "../components/Header-section/Header.vue"),
-            Services: () => import(/* webpackChunkName: "Services" */ "../components/Services-section/Services.vue"),
-            Nav: () => import(/* webpackChunkName: "Services" */ "../components/Nav-section/Nav.vue"),
-            Price: () => import(/* webpackChunkName: "Services" */ "../components/Price-section/Price.vue"),
-            Taxi: () => import(/* webpackChunkName: "Services" */ "../components/Taxi-section/Taxi.vue"),
-            Special: () => import(/* webpackChunkName: "Services" */ "../components/Special-section/Special.vue"),
-            Promotion: () => import(/* webpackChunkName: "Services" */ "../components/Promotion-section/Promotion.vue"),
-            Footer: () => import(/* webpackChunkName: "Services" */ "../components/Footer-section/Footer.vue"),
-            Request: () => import(/* webpackChunkName: "Services" */ "../components/Form/Request.vue"),
-            OrderModal: () => import(/* webpackChunkName: "Services" */ "../components/Order-modal/OrderModal.vue"),
-            Confirm: () => import(/* webpackChunkName: "Services" */ "../components/Confirm/Confirm.vue"),
-            Input: () => import(/* webpackChunkName: "Services" */ "../components/Confirm/Input.vue"),
-            Attention: () => import (/* webpackChunkName: "Services" */ "../components/Attention-modal/Attention.vue")
+            Header,
+            Services,
+            Nav,
+            Price,
+            Taxi,
+            Special,
+            Promotion,
+            Footer,
+            OrderModal,
+            Attention,
+            Request: () => import(/* webpackChunkName: "ServiceModal" */ "../components/Form/Request.vue"),
+            Confirm: () => import(/* webpackChunkName: "ServiceModal" */ "../components/Confirm/Confirm.vue"),
+            Input: () => import(/* webpackChunkName: "ServiceModal" */ "../components/Confirm/Input.vue"),
         },
         methods: {
             ...mapActions({

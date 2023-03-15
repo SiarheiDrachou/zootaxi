@@ -11,13 +11,14 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
-    import { mapActions } from 'vuex'
+    import { mapState, mapActions } from 'vuex'
+    import PriceInformation from './PriceInformation.vue'
+    import PriceContainer from './PriceContainer.vue'
 
     export default {
         components: {
-            PriceInformation: () => import(/* webpackChunkName: "Price" */ "./PriceInformation"),
-            PriceContainer: () => import(/* webpackChunkName: "Price" */ "./PriceContainer"),
+            PriceInformation,
+            PriceContainer,
         },
         data() {
             return {

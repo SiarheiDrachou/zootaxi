@@ -33,11 +33,13 @@
 
 <script>
     import { mapState } from 'vuex'
+    import Contacts from '../Contacts/Contacts.vue'
+    import Logo from './Logo.vue'
 
     export default {
         components: {
-            Contacts: () => import(/* webpackChunkName: "Contacts" */ "../Contacts/Contacts"),
-            Logo: () => import(/* webpackChunkName: "Header" */ "./Logo.vue"),
+            Contacts,
+            Logo,
         },
         computed: {
             ...mapState({

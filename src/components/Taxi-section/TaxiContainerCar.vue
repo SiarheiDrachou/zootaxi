@@ -34,6 +34,7 @@
 </template>
 
 <script>
+    import Cost from '../Cost/Cost.vue'
     export default {
         props: ['textTaxi'],
         data() {
@@ -42,7 +43,7 @@
             }
         },
         components: {
-            Cost: () => import(/* webpackChunkName: "Taxi" */ "../Cost/Cost"),
+            Cost,
         },
         methods: {
             viewDescrCar() {

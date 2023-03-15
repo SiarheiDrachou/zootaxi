@@ -29,23 +29,31 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
-    import { mapActions } from 'vuex'
-
+    import { mapState, mapActions } from 'vuex'
+    import Header from "../components/Header-section/Header.vue"
+    import Order from "../components/Order-section/Order.vue"
+    import Nav from "../components/Nav-section/Nav.vue"
+    import Information from "../components/Information-section/Information.vue"
+    import Questions from "../components/Question-section/Questions.vue"
+    import Partners from "../components/Partner-section/Partners.vue"
+    import Footer from "../components/Footer-section/Footer.vue"
+    import OrderModal from "../components/Order-modal/OrderModal.vue"
+    import Attention from "../components/Attention-modal/Attention.vue"
+    
     export default {
         components: {
-            Header: () => import(/* webpackChunkName: "Header" */ "../components/Header-section/Header.vue"),
-            Order: () => import(/* webpackChunkName: "Order" */ "../components/Order-section/Order.vue"),
-            Nav: () => import(/* webpackChunkName: "Nav" */ "../components/Nav-section/Nav.vue"),
-            Information: () => import(/* webpackChunkName: "Information" */ "../components/Information-section/Information.vue"),
-            Questions: () => import(/* webpackChunkName: "Questions" */ "../components/Question-section/Questions.vue"),
-            Partners: () => import(/* webpackChunkName: "Partners" */ "../components/Partner-section/Partners.vue"),
-            Footer: () => import(/* webpackChunkName: "Footer" */ "../components/Footer-section/Footer.vue"),
+            Header,
+            Order,
+            Nav,
+            Information,
+            Questions,
+            Partners,
+            Footer,
+            Attention,
+            OrderModal,
             Request: () => import(/* webpackChunkName: "Modal" */ "../components/Form/Request.vue"),
-            OrderModal: () => import(/* webpackChunkName: "Modal" */ "../components/Order-modal/OrderModal.vue"),
             Confirm: () => import(/* webpackChunkName: "Modal" */ "../components/Confirm/Confirm.vue"),
             Input: () => import(/* webpackChunkName: "Modal" */ "../components/Confirm/Input.vue"),
-            Attention: () => import (/* webpackChunkName: "Modal" */ "../components/Attention-modal/Attention.vue")
         },
         methods: {
             ...mapActions({

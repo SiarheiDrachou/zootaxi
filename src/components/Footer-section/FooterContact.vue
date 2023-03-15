@@ -60,11 +60,12 @@
 
 <script>
     import { mapActions } from 'vuex'
+    import Social from '../Social-networks/Social.vue'
 
     export default {
         props: ['textFooter', 'scroll'],
         components: {
-            Social: () => import(/* webpackChunkName: "SocialNetworks" */ "../Social-networks/Social.vue"),
+            Social,
         },
         methods: {
             ...mapActions({

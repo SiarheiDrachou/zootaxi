@@ -40,8 +40,10 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
-    import { mapState } from 'vuex'
+    import { mapActions, mapState } from 'vuex'
+    import TaxiContainerHeading from './TaxiContainerHeading.vue'
+    import TaxiContainerCar from './TaxiContainerCar.vue'
+    import TaxiContainerBus from './TaxiContainerBus.vue'
 
     export default {
         data() {
@@ -50,9 +52,9 @@
             }
         },
         components: {
-            TaxiContainerHeading: () => import(/* webpackChunkName: "Taxi" */ "./TaxiContainerHeading"),
-            TaxiContainerCar: () => import(/* webpackChunkName: "Taxi" */ "./TaxiContainerCar"),
-            TaxiContainerBus: () => import(/* webpackChunkName: "Taxi" */ "./TaxiContainerBus"),
+            TaxiContainerHeading,
+            TaxiContainerCar,
+            TaxiContainerBus,
         },
         computed: {
             ...mapState({

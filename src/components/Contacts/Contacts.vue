@@ -34,12 +34,12 @@
 </template>
 
 <script>
-    import { mapActions } from 'vuex'
-    import { mapState } from 'vuex'
+    import { mapActions, mapState } from 'vuex'
+    import Messangers from '../Messangers/Messangers.vue'
 
     export default {
         components: {
-            Messangers: () => import(/* webpackChunkName: "Messangers" */ "../Messangers/Messangers"),
+            Messangers,
         },
         computed: {
             ...mapState({

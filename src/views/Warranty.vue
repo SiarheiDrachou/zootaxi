@@ -27,22 +27,29 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
-    import { mapActions } from 'vuex'
+    import { mapState, mapActions } from 'vuex'
+    import Header from "../components/Header-section/Header.vue"
+    import Advantages from "../components/Advantages-section/Advantages.vue"
+    import Nav from "../components/Nav-section/Nav.vue"
+    import Warranty from "../components/Warranty-section/Warranty.vue"
+    import Satisfied from "../components/Satisfied-section/Satisfied.vue"
+    import Footer from "../components/Footer-section/Footer.vue"
+    import OrderModal from "../components/Order-modal/OrderModal.vue"
+    import Attention from "../components/Attention-modal/Attention.vue"
 
     export default {
         components: {
-            Header: () => import(/* webpackChunkName: "Warranty" */ "../components/Header-section/Header.vue"),
-            Advantages: () => import(/* webpackChunkName: "Warranty" */ "../components/Advantages-section/Advantages.vue"),
-            Nav: () => import(/* webpackChunkName: "Warranty" */ "../components/Nav-section/Nav.vue"),
-            Warranty: () => import(/* webpackChunkName: "Warranty" */ "../components/Warranty-section/Warranty.vue"),
-            Satisfied: () => import(/* webpackChunkName: "Warranty" */ "../components/Satisfied-section/Satisfied.vue"),
-            Footer: () => import(/* webpackChunkName: "Warranty" */ "../components/Footer-section/Footer.vue"),
-            Request: () => import(/* webpackChunkName: "Warranty" */ "../components/Form/Request.vue"),
-            OrderModal: () => import(/* webpackChunkName: "Warranty" */ "../components/Order-modal/OrderModal.vue"),
-            Confirm: () => import(/* webpackChunkName: "Warranty" */ "../components/Confirm/Confirm.vue"),
-            Input: () => import(/* webpackChunkName: "Warranty" */ "../components/Confirm/Input.vue"),
-            Attention: () => import (/* webpackChunkName: "Warranty" */ "../components/Attention-modal/Attention.vue")
+            Header,
+            Advantages,
+            Nav,
+            Warranty,
+            Satisfied,
+            Footer,
+            OrderModal,
+            Attention,
+            Request: () => import(/* webpackChunkName: "WarrantyModal" */ "../components/Form/Request.vue"),
+            Confirm: () => import(/* webpackChunkName: "WarrantyModal" */ "../components/Confirm/Confirm.vue"),
+            Input: () => import(/* webpackChunkName: "WarrantyModal" */ "../components/Confirm/Input.vue"),
         },
         methods: {
             ...mapActions({

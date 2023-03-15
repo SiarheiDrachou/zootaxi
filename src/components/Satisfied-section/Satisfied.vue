@@ -12,10 +12,11 @@
 
 <script>
     import { mapState } from 'vuex'
+    import SatisfiedCarousel from './SatisfiedCarousel.vue'
 
     export default {
         components: {
-            SatisfiedCarousel: () => import(/* webpackChunkName: "Satisfied" */ "./SatisfiedCarousel.vue"),
+            SatisfiedCarousel,
         },
         computed: {
             ...mapState({

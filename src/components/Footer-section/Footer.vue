@@ -19,6 +19,8 @@
 
 <script>
     import { mapState } from 'vuex'
+    import FooterPay from './FooterPay.vue'
+    import FooterContact from './FooterContact.vue'
 
     export default {
         data() {
@@ -32,8 +34,8 @@
             },
         },
         components: {
-            FooterPay: () => import(/* webpackChunkName: "Footer" */ "./FooterPay.vue"),
-            FooterContact: () => import(/* webpackChunkName: "Footer" */ "./FooterContact.vue"),
+            FooterPay,
+            FooterContact,
         },
         computed: {
             ...mapState({

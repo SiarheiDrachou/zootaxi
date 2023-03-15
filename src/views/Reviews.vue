@@ -23,20 +23,25 @@
 </template>
 
 <script>
-    import { mapState } from 'vuex'
-    import { mapActions } from 'vuex'
+    import { mapState, mapActions } from 'vuex'
+    import Header from "../components/Header-section/Header.vue"
+    import Nav from "../components/Nav-section/Nav.vue"
+    import Reviews from "../components/Review-section/Reviews.vue"
+    import Footer from "../components/Footer-section/Footer.vue"
+    import OrderModal from "../components/Order-modal/OrderModal.vue"
+    import Attention from "../components/Attention-modal/Attention.vue"
 
     export default {
         components: {
-            Header: () => import(/* webpackChunkName: "Reviews" */ "../components/Header-section/Header.vue"),
-            Nav: () => import(/* webpackChunkName: "Reviews" */ "../components/Nav-section/Nav.vue"),
-            Reviews: () => import(/* webpackChunkName: "Reviews" */ "../components/Review-section/Reviews.vue"),
-            Footer: () => import(/* webpackChunkName: "Reviews" */ "../components/Footer-section/Footer.vue"),
-            Request: () => import(/* webpackChunkName: "Reviews" */ "../components/Form/Request.vue"),
-            OrderModal: () => import(/* webpackChunkName: "Reviews" */ "../components/Order-modal/OrderModal.vue"),
-            Confirm: () => import(/* webpackChunkName: "Reviews" */ "../components/Confirm/Confirm.vue"),
-            Input: () => import(/* webpackChunkName: "Reviews" */ "../components/Confirm/Input.vue"),
-            Attention: () => import (/* webpackChunkName: "Reviews" */ "../components/Attention-modal/Attention.vue")
+            Header,
+            Nav,
+            Reviews,
+            Footer,
+            OrderModal,
+            Attention,
+            Request: () => import(/* webpackChunkName: "ReviewsModal" */ "../components/Form/Request.vue"),
+            Confirm: () => import(/* webpackChunkName: "ReviewsModal" */ "../components/Confirm/Confirm.vue"),
+            Input: () => import(/* webpackChunkName: "ReviewsModal" */ "../components/Confirm/Input.vue"),
         },
         methods: {
             ...mapActions({

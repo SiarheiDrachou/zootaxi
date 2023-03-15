@@ -26,11 +26,13 @@
 
 <script>
     import { mapState } from 'vuex'
+    import OrderForm from './OrderForm.vue'
+    import OrderCarousel from './OrderCarousel.vue'
 
     export default {
         components: {
-            OrderForm: () => import(/* webpackChunkName: "Order" */ "./OrderForm.vue"),
-            OrderCarousel: () => import(/* webpackChunkName: "Order" */ "./OrderCarousel.vue"),
+            OrderForm,
+            OrderCarousel,
         },
         computed: {
             ...mapState({

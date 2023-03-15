@@ -15,11 +15,13 @@
 
 <script>
     import { mapState } from 'vuex'
+    import Rules from './Rules.vue'
+    import Youtube from './Youtube.vue'
 
     export default {
         components: {
-            Rules: () => import(/* webpackChunkName: "Information" */ "./Rules.vue"),
-            Youtube: () => import(/* webpackChunkName: "Information" */ "./Youtube.vue"),
+            Rules,
+            Youtube,
         },
         computed: {
             ...mapState({
